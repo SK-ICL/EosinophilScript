@@ -1,0 +1,7 @@
+setImageType('BRIGHTFIELD_H_E');
+setColorDeconvolutionStains('{"Name" : "H&E_Mod", "Stain 1" : "Hematoxylin", "Values 1" : "0.4961 0.78324 0.37472", "Stain 2" : "Eosin", "Values 2" : "0.12031 0.8576 0.50005", "Background" : " 236 232 238"}');
+addPixelClassifierMeasurements("Tissue Detection", "Tissue Detection")
+createAnnotationsFromPixelClassifier("Tissue Detection", 0.0, 0.0, "SPLIT")
+runPlugin('qupath.imagej.detect.cells.WatershedCellDetection', '{"detectionImageBrightfield":"Hematoxylin OD","requestedPixelSizeMicrons":0.22,"backgroundRadiusMicrons":6.0,"backgroundByReconstruction":true,"medianRadiusMicrons":0.0,"sigmaMicrons":1.5,"minAreaMicrons":5.0,"maxAreaMicrons":400.0,"threshold":0.1,"maxBackground":2.0,"watershedPostProcess":true,"cellExpansionMicrons":1.5,"includeNuclei":true,"smoothBoundaries":true,"makeMeasurements":true}')
+runObjectClassifier("Eosinophil_TEST@");
+Print 'done'
